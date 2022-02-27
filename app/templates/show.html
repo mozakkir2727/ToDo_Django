@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <table class="table">
+                <tr>
+                    <th>email</th>
+                    <th>username</th>
+                    <th>title</th>
+                    <th>description</th>
+                    <th>priority</th>
+                    <th>category</th>
+                    <th>due_date</th>
+                </tr>
+
+                {% for x in data %}
+                <tr>
+                    <td>{{x.username}}</td>
+                    <td>{{x.title}}</td>
+                    <td>{{x.description}}</td>
+                    <td>{{x.priority}}</td>
+                    <td>{{x.category}}</td>
+                    <td>{{x.due_date}}</td>
+                    <td>
+                        <a href="{% url 'update' x.id %}"><button>update</button></a>
+                        {% if not x.status %}
+                        <a href="{% url 'update_done' x.id %}">Update the status</a>
+                        {% else %}
+                        <button>Completed</button>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'delete' x.id %}"><button>DELETE</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="text-center">
+            <a class="btn btn-success" href="{% url 'index' %}">ADD</a>
+        </div>
+
+        <script>
+            if (window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.href);
+            }
+        </script>
+    </body>
+</html>

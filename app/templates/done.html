@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+          <div class="col-sm-9">
+          {% for DO data %}
+            {% if not DO.status %}
+                <div class="well">
+                  <h4>{{ DO.name }}</h4>
+                  <a href="{% url 'mark_as_done' todo.id  %}">Mark as Done  &#9996;</a>
+                </div>
+            {% endif %}
+          {% end for %}
+          </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TO DO APP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #2e5279;
+            color:white;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input::placeholder {
+            color: #9b9b9b;
+        }
+
+        .submit {
+            background-color: #6BA3E8;
+        }
+
+        .center-column {
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .item-row {
+            background-color: #906abd;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 16px;
+            box-shadow: 0px -1px 10px -4px rgba(0, 0, 0, 0.75);
+        }
+
+        .btn-danger {
+            background-color: #ffae19;
+            border-color: #e59400;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+
+
+
+
+
+
+
+    <table align="center">
+        <form action="/display" method="post">
+            {%  csrf_token  %}
+            {{form}}
+            <th>TodoApp</th><br>
+            <div class="inputContainer">
+                <tr>
+                    <td>
+                        <label for="username">username:</label>
+                        <input type="text" id="username" class="task name" placeholder="email" name="username">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="title">title:</label>
+                        <input type="text" id="title" class="task name" placeholder="name" name="title">
+                </tr>
+                </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description">
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="priority">priority:</label>
+                    <input type="text" id="priority" placeholder="name" name="priority">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="inputContainer half last">
+                        <label for="category">category:</label>
+
+                        <select multiple id="category" name="category">
+
+                            <option value="Choose a category">Choose a category</option>
+                            <option value="name">name</option>
+                        </select>
+
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" class="taskDate" name="due_date">
+
+                </td>
+            </tr>
+
+
+            <div class="col-sm-9">
+                <div class="well">
+
+                    <tr>
+                        <td>
+                            <label for="dueDate">Mark complete a ToDo</label>
+                           <button type="submit" value="Submit" class="btn btn-primary">submit </button>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+
+        </form>
+    </table>
+
+    <div class="text-center mt-4">
+        <a class="btn btn-primary" href="{% url 'show' %}">Show The List</a>
+    </div>
+
+
+    <script>
+         if (window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.href);
+            }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
+
+</head>
+
+<body>
+	<table align="center">
+		<form action="" method="POST">
+			{% csrf_token %}
+			<th>TO DO LIST</th>
+			<tr>
+				<td>
+					<input type="text" id="username" class="task name form-control" placeholder="email" name="username" value="{{value.username}}">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<input type="text" id="title" class="task name form-control" placeholder="name" name="title" value="{{value.title}}">
+				</td>
+
+
+			<tr>
+				<td>
+					<input type="text" id="description" class="taskName form-control" placeholder="What do you need to do?" name="description" value="{{value.description}}">
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>
+					<input type="text" id="priority" class="task name form-control" placeholder="name" name="priority" value="{{value.priority}}">
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>
+					<input type="text" id="category" class="task name form-control" placeholder="name" name="category" value="{{value.category}}">
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>
+					<input type="text" id="dueDate" class="task name form-control" placeholder="name" name="due_date" value="{{value.due_date}}">
+					<i>{{value.due_date}} </i>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>
+					<input type="submit" value="update">
+				</td>
+			</tr>
+
+		</form>
+
+
+		<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+		<script>
+			const elem = document.querySelector( 'input[id="dueDate"]' );
+			const datepicker = new Datepicker( elem, {
+				format: "yyyy-mm-dd"
+
+			} );
+		</script>
+</body>
+
+</html>
